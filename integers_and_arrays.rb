@@ -1,19 +1,64 @@
 # Returns count of digits matching in the two input non-negative integers
+# Time complexity: O(k) where k is the number of digits in the number containing less digits
+# Space complexity: O(1) - auxiliary storage does not change based on input
 def digit_match(number_1, number_2)
-  puts "NOT IMPLEMENTED"
-  return 0
+  return 0 if number_1 < 0 || number_2 < 0 # ensure non-negative integers
+  count = 0
+  while number_1 > 0 && number_2 > 0
+    # get the last digit of each number
+    last_digit_number_1 = number_1 % 10
+    last_digit_number_2 = number_2 % 10
+    # compare the last digit of each number
+    if last_digit_number_1 == last_digit_number_2
+      count += 1
+    end
+    # remove the last digit of number_1 and number_2
+    number_1 = number_1 / 10
+    number_2 = number_2 / 10
+  end
+  return count
 end
 
 # Returns true if the input positive integer number forms a palindrome. Returns false otherwise.
+# The approach below compares one digit at a time.
+# Time complexity: O(k) where k is the number of digits in the number
+# Space complexity: O(1) since the auxiliary storage used does not change based on input
+# An alternative approach, is to reverse the number and save it separately and
+# compare it with the input. If they are equal, then the number is a palindrome.
+# The alternative approach creates O(k) space.
 def is_palindrome(number)
-  puts "NOT IMPLEMENTED"
+  return false if number < 0
+
+  # figure out the number of 0s in divisor
+  div = 1
+  while (number / div) >= 10
+    div *= 10
+  end
+
+  while number > 0
+    left = number / div # get the left most digit
+    right = number % 10 # get the right most digit
+    if left != right # compare the leftmost digit with the right most digit
+      return false
+    end
+
+    number = (number % div) # remove one digit from the left
+    number = number / 10 # remove one digit from the right
+    div /= 100 # remove two digits from the divisor to compensate for left and right digits
+  end
   return true
 end
 
 # Computes factorial of the input number and returns it
+# Time complexity: O(number)
+# Space complexity: O(1)
 def factorial(number)
-  puts "NOT IMPLEMENTED"
-  return number
+  fact = 1
+  while number > 1
+    fact = fact * number
+    number -= 1
+  end
+  return fact
 end
 
 # Computes the nth fibonacci number in the series starting with 0.
@@ -22,15 +67,39 @@ end
 # e.g. 1st fibonacci number is 1
 # ....
 # e.g. 6th fibonacci number is 8
+# Time complexity: O(n)
+# Space complexity: O(1)
 def fibonacci(n)
-  puts "NOT IMPLEMENTED"
-  return n
+  if n == 0 || n == 1
+    return n
+  end
+  first = 0
+  second = 1
+  current = 1
+  while n > 2
+    first = second
+    second = current
+    current = first + second
+    n -= 1
+  end
+  return current
 end
 
 # Creates a new array to return the intersection of the two input arrays
+# Time complexity: O(m*n) where array_1 has m elements and array_2 has n elements
+# Space complexity: O(m) if m < n since common_elements array gets created and
+#                   returned and at the most all elements will match.
 def intersection(array_1, array_2)
-  puts "NOT IMPLEMENTED"
-  return []
+  common_elements = []
+  array_1.each do |number_1|
+    array_2.each do |number_2|
+      if number_1 == number_2
+        common_elements << number_1
+        break
+      end
+    end
+  end
+  return common_elements
 end
 
 # Questions on 2D array or matrix
@@ -39,16 +108,57 @@ end
 # Assumption/ Given: All numbers in the matrix are 0s or 1s
 # If any number is found to be 0, the method updates all the numbers in the
 # corresponding row as well as the corresponding column to be 0.
+# Time complexity: O(rows * columns)
+# Space complexity: O(1)
 def matrix_convert_to_0(matrix)
-  puts "NOT IMPLEMENTED"
+  rows = matrix.length
+  columns = matrix[0].length
+  # if any column in the row is 0, make the first column 0
+  # if any row in the column is 0, make the first row 0
+  # by using the first row and first column in the matrix, save on additional space usage
+  rows.times do |row|
+    columns.times do |column|
+      if matrix[row][column] == 0
+        matrix[0][column] = 0
+        matrix[row][0] = 0
+      end
+    end
+  end
+
+  # if the corresponding 0th row, or 0th column has value of 0, make it 0
+  rows.times do |row|
+    columns.times do |column|
+      if matrix[0][column] == 0 || matrix[row][0] == 0
+        matrix[row][column] = 0
+      end
+    end
+  end
 end
 
 # Checks that for the given matrix, where number of rows are equal to number of columns
 # whether the sum of each row matches the sum of corresponding column i.e. sum
 # of numbers in row i is the same as the sum of numbers in column i for i = 0 to row.length-1
 # If this is the case, return true. Otherwise, return false.
+# Time complexity: O(rows * columns)
+# Space complexity: O(1)
 def matrix_check_sum(matrix)
-  puts "NOT IMPLEMENTED"
+  rows = matrix.length
+  columns = matrix[0].length
+  return false if rows != columns
+
+  rows.times do |i|
+    sum_rows = 0
+    sum_columns = 0
+    columns.times do |j|
+      sum_rows += matrix[i][j]
+      sum_columns += matrix[j][i]
+    end
+    if sum_rows != sum_columns
+      return false
+    end
+  end
+
+  return true
 end
 
 ### END OF METHODS
