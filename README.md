@@ -13,13 +13,13 @@ For example, for  input values of (1072503891, 62530841), the method would compa
 ```
 The method should return 4 in this case because 4 of these pairs match (2-2, 5-5, 8-8, and 1-1).
 
-2. Design and implement a method that checks if the digits in the input positive integer forms a palindrome. The method returns true if the digits in the input form a palindrome. The method returns false otherwise.
+2. Design and implement a method that checks if the digits in the input positive integer forms a palindrome. The method returns true if the digits in the input form a palindrome. The method returns false otherwise.<\br>
 For example, 12521 and 4554 are palindromes. 326725 is not a palindrome.
 
-3. Design and implement a method that computes factorial of the input non-negative integer and returns it. Factorial of a number, 'n' is represented as 'n!' and is defined as follows:
-   - '0!' = '1'
-   - 'n!' = 'n * (n-1)!' if 'n' > 0
-   -    = 'n * (n-1) * (n-2) * ... * 1'
+3. Design and implement a method that computes factorial of the input non-negative integer and returns it. Factorial of a number, 'n' is represented as *n!* and is defined as follows:
+   - *0!* = *1*
+   - *n!* = *n * (n-1)!* if *n* > 0
+   -    = *n * (n-1) * (n-2) * ... * 1*</br>
 For example, 3! = 3 * 2 * 1 = 6. 6! = 720.
 
 4. Design and implement a method to compute the nth fibonacci number in the series starting with 0.
@@ -35,7 +35,7 @@ For example, 3! = 3 * 2 * 1 = 6. 6! = 720.
    - intersection of [50, 43, 25, 72] and [25, 36, 43, 50, 80] is [50, 25, 43]
    - intersection of [9, 30, 42] and [56, 34, 90, 32] is []
 
-6. Design and implement a method that updates the input matrix. The input matrix i.e. two-dimensional array contains only '0's and '1's. If any number in the array is found to be '0', the method updates all the numbers in the corresponding row as well as the corresponding column to be '0'.
+6. Design and implement a method that updates the input matrix. The input matrix i.e. two-dimensional array contains only *0*s and *1*s. If any number in the array is found to be '0', the method updates all the numbers in the corresponding row as well as the corresponding column to be *0*.
    - For example if the input is:
 ```
 1 1 1
@@ -52,7 +52,7 @@ should get updated to:
 ```
 
 7. Design and implement a method that checks that for the given matrix, where number of rows are equal to number of columns whether the sum of each row matches the sum of the corresponding column i.e. sum
-of numbers in row 'i' is the same as the sum of numbers in column 'i' for 'i' ranging from '0' to 'row.length-1'. If this is the case, the method return true. Otherwise, it return false.
+of numbers in row *i* is the same as the sum of numbers in column *i* for *i* ranging from *0* to *row.length-1*. If this is the case, the method return true. Otherwise, it return false.
    - For example for the following input, the method should return true. (Sum of 0th row and 0th column is 10, sum of 1st row as well as the 1st column is 18 and so on.)
 ```
 1 2 3 4
