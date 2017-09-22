@@ -13,7 +13,7 @@ For example, for  input values of (1072503891, 62530841), the method would compa
 ```
 The method should return 4 in this case because 4 of these pairs match (2-2, 5-5, 8-8, and 1-1).
 
-2. Design and implement a method that checks if the digits in the input positive integer forms a palindrome. The method returns true if the digits in the input form a palindrome. The method returns false otherwise.<\br>
+2. Design and implement a method that checks if the digits in the input positive integer forms a palindrome. The method returns true if the digits in the input form a palindrome. The method returns false otherwise.</br>
 For example, 12521 and 4554 are palindromes. 326725 is not a palindrome.
 
 3. Design and implement a method that computes factorial of the input non-negative integer and returns it. Factorial of a number, 'n' is represented as *n!* and is defined as follows:
