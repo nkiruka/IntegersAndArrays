@@ -43,9 +43,8 @@ def matrix_convert_to_0(matrix)
   puts "NOT IMPLEMENTED"
 end
 
-# Checks that for the given matrix, where number of rows are equal to number of columns
-# whether the sum of each row matches the sum of corresponding column i.e. sum
-# of numbers in row i is the same as the sum of numbers in column i for i = 0 to row.length-1
+# Checks that for the given matrix. If the sum of each row matches the sum of corresponding 
+# column i.e. sum of numbers in row i is the same as the sum of numbers in column i for i = 0 to row.length-1
 # If this is the case, return true. Otherwise, return false.
 def matrix_check_sum(matrix)
   puts "NOT IMPLEMENTED"
@@ -342,7 +341,6 @@ end
 # test 3
 matrix = [[1, 2, 3],
           [4, 5, 6],
-          [7, 8, 9],
           [10, 11, 12]]
 if matrix_check_sum(matrix) == true
   puts "BUG!! Sums of each row does NOT match the corresponding column in this matrix."
@@ -352,7 +350,7 @@ if matrix_check_sum(matrix) == true
     puts
   end
 end
-# test 3
+# test 4
 matrix = [[1, 10, 1],
           [2, 3, 12],
           [9, 4, 9]]
